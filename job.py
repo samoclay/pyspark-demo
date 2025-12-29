@@ -4,8 +4,8 @@ spark = SparkSession.builder \
     .appName("LocalGluePySparkJob") \
     .getOrCreate()
 
-data = [("Alice", 30), ("Bob", 40)]
-df = spark.createDataFrame(data, ["name", "age"])
+data = [("Rehan", 10, 90), ("Shahil", 10, 85), ("Shibran",10 , 80),]
+df = spark.createDataFrame(data, ["name", "class", "marks"])
 
 df.show()
 
