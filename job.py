@@ -1,7 +1,6 @@
 """
 PySpark job to demonstrate basic functionality.
 """
-
 from pyspark.sql import SparkSession
 
 spark = SparkSession.builder \
