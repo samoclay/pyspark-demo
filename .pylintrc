@@ -1,0 +1,30 @@
+[MASTER]
+# Ignore import errors for modules not installed in the current interpreter
+ignore-missing-imports=yes
+
+# Add directories to PYTHONPATH if needed
+# init-hook can point to your Spark installation if necessary
+#init-hook='import sys; sys.path.append("/path/to/spark/python")'
+
+[MESSAGES CONTROL]
+# Disable specific warnings you don’t care about
+disable=
+    C0114,  # missing module docstring
+    C0115,  # missing class docstring
+    C0116,  # missing function docstring
+    R0903,  # too few public methods
+    R0914,  # too many local variables
+    E0401   # import-error (this silences pyspark import errors)
+
+[FORMAT]
+# Max line length
+max-line-length=120
+
+[REPORTS]
+# Only show the score, no full message reports
+reports=no
+
+[TYPECHECK]
+# Modules to ignore for import errors
+ignored-modules=pyspark,py4j
+
