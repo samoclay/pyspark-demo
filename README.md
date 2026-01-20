@@ -5,4 +5,3 @@ Docker file-
 -changed os size 
 -changed the path
 -changed dockerfile to reduce size
-
