@@ -1,12 +1,6 @@
-FROM python:3.11-slim
-
+FROM alpine:3.19
+RUN apk add --no-cache python3 py3-pip
 WORKDIR /app
-
-RUN apt-get update && apt-get install -y default-jdk \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install pyspark pylint
-
 COPY . .
-
-CMD ["spark-submit", "--master", "local[*]", "job.py"]
+CMD ["python3", "app.py"]
+  
