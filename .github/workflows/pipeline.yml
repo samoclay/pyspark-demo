@@ -1,0 +1,34 @@
+name: PySpark Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build artifact
+        run: zip -r pyspark-job.zip job.py requirements.txt config
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pyspark-job
+          path: pyspark-job.zip
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pyspark-job
+
+      - name: Run Spark job (Docker)
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/app \
+            bitnami/spark:3.5 \
+            spark-submit /app/pyspark-job.zip
+
