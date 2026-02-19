@@ -1,4 +1,5 @@
 [MASTER]
+<<<<<<< HEAD
 # Ignore import errors for modules not installed in the current interpreter
 ignore-missing-imports=yes
 
@@ -27,4 +28,7 @@ reports=no
 [TYPECHECK]
 # Modules to ignore for import errors
 ignored-modules=pyspark,py4j
+=======
+ignored-modules=pyspark
+>>>>>>> 07b873f (Save local changes before pull)
 
